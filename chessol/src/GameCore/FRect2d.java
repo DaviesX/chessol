@@ -22,10 +22,11 @@ package GameCore;
  * @author Wen, Chifeng <https://sourceforge.net/u/daviesx/profile/>
  */
 public class FRect2d {
+
         public float[] p;
 
         public FRect2d() {
-                p = new float [4];
+                p = new float[4];
                 p[0] = 0.0f;
                 p[1] = 0.0f;
                 p[2] = 0.0f;

@@ -82,7 +82,6 @@ class PluginConfigState extends RunnableState {
 
 }
 
-
 /**
  * 控制游戏程序运行状态
  *

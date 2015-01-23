@@ -57,10 +57,10 @@ public class Game extends RunnableState {
         public int state_transit(ObjectCache oc) {
                 return StateGraph.c_EndState;
                 /*if (!m_isrunning) {
-                        return -1;
-                } else {
-                        return super.m_stategraph.get_current_state();
-                }*/
+                 return -1;
+                 } else {
+                 return super.m_stategraph.get_current_state();
+                 }*/
         }
 
 }

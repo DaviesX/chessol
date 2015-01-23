@@ -33,6 +33,7 @@ public class Plugin_OfflineChineseChess implements Plugin {
         }
 
         private enum States {
+
                 GameHall,
                 GameRoom
         };

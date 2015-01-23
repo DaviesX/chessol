@@ -19,7 +19,6 @@ package Plugins;
 
 import GameCore.StateGraph;
 
-
 /**
  * 在线中国象棋插件
  *
@@ -33,6 +32,7 @@ public class Plugin_OnlineChineseChess implements GameCore.Plugin {
         }
 
         private enum States {
+
                 GameHall,
                 GameRoom
         };

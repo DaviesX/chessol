@@ -74,7 +74,7 @@ public class GameRoom extends javax.swing.JFrame implements WindowListener {
         private final GameGraphics m_graphics;
         private final GameNetwork m_network;
         private final MyMouseListener m_mouse;
-        
+
         private final PacketIdentityVerification m_local;
         private final PacketIdentityVerification m_opponent;
 
@@ -164,12 +164,12 @@ public class GameRoom extends javax.swing.JFrame implements WindowListener {
 
                 m_mouse = new MyMouseListener();
                 m_graphics.addMouseListener(m_mouse);
-                
+
                 GameHall hallgui = oc.<GameHall>use(ComponentNames.c_Hall_GUI);
                 m_local = hallgui.get_friend_players_id()[0];
                 m_opponent = hallgui.get_opponent_players_id()[0];
                 lb_server_info.setText(m_local.id() + " vs " + m_opponent.id());
-                
+
                 m_timer = new Timer(10000, new Refresh());
                 m_timer.start();
         }

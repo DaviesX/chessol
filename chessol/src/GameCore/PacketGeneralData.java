@@ -94,11 +94,11 @@ public class PacketGeneralData extends NetworkDataPacket {
                 m_num_bytes = NetworkDataPacket.read_string(m_data, m_num_bytes, s);
                 return s[0];
         }
-        
+
         public void port(String port) {
                 c_Port_Nature = port;
         }
-        
+
         public String port() {
                 return c_Port_Nature;
         }

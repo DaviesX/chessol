@@ -22,10 +22,11 @@ package GameCore;
  * @author Wen, Chifeng <https://sourceforge.net/u/daviesx/profile/>
  */
 public class FPoint2d {
-        public float [] p;
+
+        public float[] p;
 
         public FPoint2d() {
-                p = new float [2];
+                p = new float[2];
                 p[0] = 0.0f;
                 p[1] = 0.0f;
         }

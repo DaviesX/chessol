@@ -91,13 +91,13 @@ public abstract class NetworkDataPacket {
                 s[0] = new String(b);
                 return i + b.length;
         }
-        
+
         public static int write_byte_array(byte[] data, int i, byte[] array) {
                 i = write_int(data, i, array.length);
                 System.arraycopy(array, 0, data, i, array.length);
                 return i + array.length;
         }
-        
+
         public static int read_byte_array(byte[] data, int i, byte[][] array) {
                 Integer[] length = new Integer[1];
                 i = read_int(data, i, length);
@@ -105,7 +105,7 @@ public abstract class NetworkDataPacket {
                 System.arraycopy(data, i, array[0], 0, array[0].length);
                 return i + array[0].length;
         }
-        
+
         public static int int_size(Integer i) {
                 return PrimitiveType.sizeof(PrimitiveType.Integer);
         }
@@ -113,7 +113,7 @@ public abstract class NetworkDataPacket {
         public static int string_size(String s) {
                 return PrimitiveType.sizeof(PrimitiveType.Integer) + s.getBytes().length;
         }
-        
+
         public static int byte_array_size(byte[] array) {
                 return PrimitiveType.sizeof(PrimitiveType.Integer) + array.length;
         }
@@ -185,20 +185,22 @@ public abstract class NetworkDataPacket {
                 write_int(data, c_Offset_Table[c_Header_Packet_Size],
                     length - c_Header_Length);
         }
-        
+
         /**
          * 提取签名
+         *
          * @param data
-         * @return 
+         * @return
          */
         public static int decode_packet_signature(byte[] data) {
                 Integer signature[] = new Integer[1];
                 read_int(data, c_Offset_Table[c_Header_Signature], signature);
                 return signature[0];
         }
-        
+
         /**
          * 填写签名
+         *
          * @param data
          * @param signature
          */

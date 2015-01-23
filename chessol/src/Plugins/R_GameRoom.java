@@ -15,7 +15,6 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
-
 package Plugins;
 
 import GameCore.App;
@@ -28,17 +27,18 @@ import GameCore.StateGraph;
  * @author Wen, Chifeng <https://sourceforge.net/u/daviesx/profile/>
  */
 public class R_GameRoom extends RunnableState {
-        
+
         enum States {
+
                 InitOnlinePlayers,
                 DoublePlayers
         };
-        
+
         private GameRoom m_roomgui;
         private App m_app;
         private final int m_quit_room_state;
         private final boolean m_is_online_room;
-        
+
         public R_GameRoom(int quit_room_state, boolean is_online_room) {
                 m_quit_room_state = quit_room_state;
                 m_is_online_room = is_online_room;

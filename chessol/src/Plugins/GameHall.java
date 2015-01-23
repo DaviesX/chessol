@@ -50,7 +50,7 @@ public class GameHall extends javax.swing.JFrame {
                 public void actionPerformed(ActionEvent e) {
                         // 本地用户
                         m_is_inviter = true;
-                        
+
                         Login login = m_oc.<Login>use(ComponentNames.c_Login_GUI);
                         m_friend_players_id = login.get_user();
 
@@ -60,28 +60,28 @@ public class GameHall extends javax.swing.JFrame {
                         String oppo_name = (String) lt_user_list.getSelectedValue();
                         PacketIdentityVerification[] users = m_network.client_query_online_users(m_friend_players_id);
                         String[] user_name = new String[users.length];
-                        
+
                         for (int i = 0; i < users.length; i++) {
                                 user_name[i] = users[i].id();
-                                if ( oppo_name != null && oppo_name.equals(user_name[i])) {
-                                       m_opponent_players_id = users[i]; 
+                                if (oppo_name != null && oppo_name.equals(user_name[i])) {
+                                        m_opponent_players_id = users[i];
                                 }
                         }
                         // 刷新列表
                         lt_user_list.setListData(user_name);
-                        
+
                         // 检查邀请
-                        NetworkDataPacket[] input = 
-                            m_network.client_receive_packet(m_friend_players_id, c_Invite_Signature, false);
-                        if ( input.length != 0 ) {
+                        NetworkDataPacket[] input
+                            = m_network.client_receive_packet(m_friend_players_id, c_Invite_Signature, false);
+                        if (input.length != 0) {
                                 PacketIdentityVerification inviter = (PacketIdentityVerification) input[0];
-                                int ans = JOptionPane.showConfirmDialog(null, "接受" +inviter.id() + "的邀请吗?");
-                                if ( ans == JOptionPane.YES_OPTION ) {
+                                int ans = JOptionPane.showConfirmDialog(null, "接受" + inviter.id() + "的邀请吗?");
+                                if (ans == JOptionPane.YES_OPTION) {
                                         m_opponent_players_id = inviter;
                                         m_is_inviter = false;
                                 }
                         }
-                        
+
                         // 显示对手
                         if (m_opponent_players_id != null) {
                                 label_opponent_name.setText(m_opponent_players_id.id());
@@ -121,7 +121,7 @@ public class GameHall extends javax.swing.JFrame {
                 //</editor-fold>
                 initComponents();
                 super.setTitle(App.c_VersionString);
-                
+
                 m_oc = oc;
                 m_network = oc.<App>use(ComponentNames.c_App).get_game_network();
                 bt_refresh.addActionListener(new Refresh());
@@ -409,17 +409,17 @@ public class GameHall extends javax.swing.JFrame {
 
         private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonActionPerformed
                 // TODO add your handling code here:
-                if ( m_friend_players_id == null || m_opponent_players_id == null) {
+                if (m_friend_players_id == null || m_opponent_players_id == null) {
                         JOptionPane.showMessageDialog(null, "请选择用户");
-                        return ;
+                        return;
                 }
-                if ( m_friend_players_id.id().equals(m_opponent_players_id.id())) {
+                if (m_friend_players_id.id().equals(m_opponent_players_id.id())) {
                         JOptionPane.showMessageDialog(null, "你将选择自己为对手！");
                 }
                 // 发送邀请
                 m_friend_players_id.set_dest_port(m_opponent_players_id.get_this_port());
                 m_network.client_send_packet(m_friend_players_id, c_Invite_Signature, m_friend_players_id);
-                
+
                 m_is_entering_game = true;
                 //m_is_inviter = true;
                 super.dispose();

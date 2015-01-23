@@ -59,4 +59,3 @@ public class R_GameHall extends RunnableState {
                 }
         }
 }
-

@@ -21,6 +21,7 @@ import java.util.ArrayList;
 
 /**
  * 虚拟命令
+ *
  * @author Wen, Chifeng <https://sourceforge.net/u/daviesx/profile/>
  */
 public abstract class Command extends Object {
@@ -55,7 +56,7 @@ public abstract class Command extends Object {
         public String toString() {
                 String value = "命令：" + m_cmd_name + " 参数：";
                 int i;
-                for ( i = 0; i < m_params.size() - 1; i ++ ) {
+                for (i = 0; i < m_params.size() - 1; i++) {
                         value += m_params.get(i).toString() + "，";
                 }
                 value += m_params.get(i).toString();

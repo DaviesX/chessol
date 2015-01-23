@@ -23,7 +23,7 @@ package GameCore;
  * @author Wen, Chifeng <https://sourceforge.net/u/daviesx/profile/>
  */
 public class PacketIdentityVerification extends NetworkDataPacket {
-        
+
         private final int c_Packet_Nature = NetworkDataPacketFactory.c_IdentityVerification_Packet;
         private String m_port_nature = NetworkDataPacket.c_Upload_port;
         private String m_port;
@@ -80,7 +80,7 @@ public class PacketIdentityVerification extends NetworkDataPacket {
         public String get_this_port() {
                 return m_port;
         }
-        
+
         public void update_this_port(String port) {
                 m_port = port;
         }
@@ -114,7 +114,7 @@ public class PacketIdentityVerification extends NetworkDataPacket {
                 iterator = read_string(data, iterator, port);
                 iterator = read_string(data, iterator, uid);
                 iterator = read_string(data, iterator, passcode);
-                
+
                 m_port = port[0];
                 m_uid = uid[0];
                 m_passcode = passcode[0];

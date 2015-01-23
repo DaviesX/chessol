@@ -15,7 +15,6 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
-
 package Plugins;
 
 /**
@@ -23,5 +22,5 @@ package Plugins;
  * @author Wen, Chifeng <https://sourceforge.net/u/daviesx/profile/>
  */
 public class GameStateInterface {
-        
+
 }

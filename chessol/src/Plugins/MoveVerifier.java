@@ -541,26 +541,28 @@ public class MoveVerifier {
                 System.arraycopy(tmp, 0, chesses, 0, chesses.length);
                 return chesses;
         }
-        
+
         /**
          * 用输入的导航格覆盖现有的导航格
+         *
          * @param navigrid
          */
         public void import_navigrid(int[][] navigrid) {
-                for ( int i = 0; i < 10; i ++ ) {
-                        for ( int j = 0; j < 9; j ++ ) {
+                for (int i = 0; i < 10; i++) {
+                        for (int j = 0; j < 9; j++) {
                                 m_navigrid[i][j] = navigrid[i][j];
                         }
                 }
         }
-        
+
         /**
          * 导出导航格
+         *
          * @param navigrid
          */
         public void export_navigrid(int[][] navigrid) {
-                for ( int i = 0; i < 10; i ++ ) {
-                        for ( int j = 0; j < 9; j ++ ) {
+                for (int i = 0; i < 10; i++) {
+                        for (int j = 0; j < 9; j++) {
                                 navigrid[i][j] = m_navigrid[i][j];
                         }
                 }
